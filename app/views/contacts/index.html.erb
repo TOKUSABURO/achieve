@@ -1,0 +1,17 @@
+<div class="container">
+   <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+
+<p><%= notice %></p>
+
+<h1>ブログ一覧</h1>
+
+<% @contacts.each do |contact| %>
+ <p>名前:<%= contact.name %></p>
+ <p>E-mail:<%= contact.email %></p>
+ <p>本文:<%= contact.content %></p>
+ 
+  <%= link_to "お問い合わせを編集する", edit_contact_path(contact.id),data: { confirm: '本当に編集していいですか？' }%>
+  <%= link_to 'お問い合わせを削除する',contact_path(contact.id),method: :delete,data: { confirm: '本当に削除していいですか？' } %>
+<% end %>
+
+<%= link_to "お問い合わせを作成する",new_contact_path %>
