@@ -11,4 +11,9 @@ class NoticeMailer < ApplicationMailer
     mail to: "tra.tokusabu@gmail.com",
       subject: '【Achieve】ブログが投稿されました'
   end
+  
+  def sendmail_contact(aaa)
+    @greeting = "Hi"
+    mail to: "<%= aaa.email %>"
+  end
 end
