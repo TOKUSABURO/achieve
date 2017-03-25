@@ -14,6 +14,6 @@ class NoticeMailer < ApplicationMailer
   
   def sendmail_contact(aaa)
     @greeting = "Hi"
-    mail to: "<%= aaa.email %>"
+    mail to: aaa.email
   end
 end
