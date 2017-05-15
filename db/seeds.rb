@@ -11,6 +11,7 @@
                uid: n,
                provider: provider
                )
+      user.skip_confirmation!
       t=User.last.id
    Blog.create(
                title: "iii",
