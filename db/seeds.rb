@@ -4,7 +4,7 @@
   email = Faker::Internet.email
   password = "password"
   provider = Faker::Internet.email
-  User.create!(email: email,
+  user= User.new(email: email,
                name: name,
                password: password,
                password_confirmation: password,
@@ -12,6 +12,8 @@
                provider: provider
                )
       user.skip_confirmation!
+      user.save
+
       t=User.last.id
    Blog.create(
                title: "iii",
