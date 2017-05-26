@@ -1,7 +1,11 @@
 class RelationshipsController < ApplicationController
-  def create
-  end
 
-  def destroy
+  before_action :authenticate_user!
+  respond_to :js
+
+  def create
+    @user = User.find(params[:relationship][:followed_id])
+      current_user.follow!(@user)
+      respond_with @user
+    end
   end
-end

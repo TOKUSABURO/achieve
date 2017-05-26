@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   get 'relationships/destroy'
 
+  get 'relationships/create'
+
+  get 'relationships/destroy'
+
   resources :users, only: [:index]
 
   resources :relationships, only: [:create, :destroy]
