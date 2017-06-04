@@ -78,4 +78,6 @@ group :development do
 
  gem 'dotenv-rails'
 
+ gem 'pusher'
+
 end
