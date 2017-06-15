@@ -19,12 +19,11 @@ class MessagesController < ApplicationController
       if  @messages.last.user_id != current_user.id
           @messages.last.read = true
       end
-
     end
 
     @message = @conversation.messages.build
 
-  end
+   end
 
   def create
     @message = @conversation.messages.build(message_params)
