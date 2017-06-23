@@ -8,23 +8,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
 
-  <% if user_signed_in? %>
       <script>
-         var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>',{
-         encrypted: true
-         });
-
-         var channel = pusher.subscribe("user_<%= current_user.id %>_channel");
-         channel.bind('comment_created', function(data) {
-         alert(data.message);
-         });
-         channel.bind('notification_created', function(data) {
-         $('#unread_count').html(data.unread_counts);
-         });
       </script>
         <%= link_to  notifications_path, class: "navbar-brand" do %>
         <i class="fa fa-bell fa-1x"><span id="unread_count"><%= @notifications_count %></span></i>
-     <% end %>
  </head>
 <body>
    <header>
@@ -54,18 +41,8 @@
             </ul>
           </li>
 
-          <% if user_signed_in? %>
-           <script>
-             var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>',{
-             encrypted: true
-               });
 
-             var channel = pusher.subscribe("user_<%= current_user.id %>_channel");
-             channel.bind('comment_created', function(data) {
-             alert(data.message);
-             });
-           </script>
-             <% end %>
+
              <% end %>
            <li><%= link_to 'マイページ', edit_user_registration_path %></li>
   　　　    <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
