@@ -4,7 +4,7 @@
       <div class="container-child col-md-2 col-sm-4 col-xs-6 ">
         　<%= profile_img(@user) %>
         　<%= @user.email %>
-
+        
         <h5>フォロワー</h5>
 
           <% @user.followers.each do|followers| %>
@@ -13,12 +13,9 @@
 
 　　　　<h5>フォローユーザー</h5>
 
-          <%= @user.followed_users.each do|followed_users|%>
+          <% @user.followed_users.each do|followed_users|%>
            <p><%= followed_users.name %></p>
            <% end%>
 
           </div>
-      <li>
-      </div>
-      </li>
-</div>
+  </div>
