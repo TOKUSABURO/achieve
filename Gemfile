@@ -69,6 +69,8 @@ gem 'omniauth-twitter'
 
 gem 'omniauth-facebook'
 
+ gem 'pusher'
+
 #image uploader
 gem 'carrierwave'
 gem 'rmagick'
@@ -78,6 +80,6 @@ group :development do
 
  gem 'dotenv-rails'
 
- gem 'pusher'
+
 
 end

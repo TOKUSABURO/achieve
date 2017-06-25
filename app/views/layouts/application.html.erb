@@ -9,8 +9,13 @@
     <%= csrf_meta_tags %>
 
 
+
+
  </head>
 <body>
+  <%= link_to notifications_path do %>
+ <i class="fa fa-bell fa-1x"><%= @notifications_count %></i>
+  <%end%>
    <header>
      <ul>
  　  <nav class="navbar navbar-default">
@@ -35,6 +40,7 @@
           <li><%= link_to "ブログ", blogs_path %></li>
             <li><%= link_to 'ユーザー一覧', users_path if user_signed_in? %></li>
             <li><%= link_to "メッセージ", conversations_path %></li>
+
             </ul>
           </li>
 
