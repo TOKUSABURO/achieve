@@ -80,6 +80,4 @@ group :development do
 
  gem 'dotenv-rails'
 
-
-
 end
