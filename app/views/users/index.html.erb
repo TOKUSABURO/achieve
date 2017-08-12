@@ -1,6 +1,5 @@
-<div class="container-fluid">
   <h2>ユーザー</h2>
-    <div class="wraper">
+  <div class="container-fluid">
     <% @users.each do |user| %>
     <div class=" col-md-2 col-sm-4 col-xs-6 ">
       <% if user.id != current_user.id %>
@@ -11,6 +10,5 @@
             <%= render 'follow_form', user: user %>
           </div>
         <% end %>
-      </div>
       <% end %>
 </div>
