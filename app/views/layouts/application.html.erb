@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+   <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Achieve</title>
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -41,25 +41,29 @@
           <li><%= link_to 'ユーザー一覧', users_path if user_signed_in? %></li>
           <li><%= link_to "メッセージ", conversations_path %></li>
           <li>
-            <%= link_to notifications_path do %>
-            <i class="fa fa-bell fa-1x"><%= @notifications_count %></i>
-            <%end%>
+            <%= link_to notifications_path, class: "navbar-brand" do %>
+           <i class="fa fa-bell fa-1x"><span id="unread_count"><%= @notifications_count %></span></i>
+           <% end %>
           </li>
         </ul>
 
 
           <% if user_signed_in? %>
            <script>
-             var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>',{
-             encrypted: true,
-             cluster: 'ap1'
-               });
+           var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>',{
+           cluster: 'ap1',
+           encrypted: true
+           });
 
-             var channel = pusher.subscribe("user_<%= current_user.id %>_channel");
-             channel.bind('comment_created', function(data) {
-             alert(data.message);
-             });
-           </script>
+           var channel = pusher.subscribe("user_<%= current_user.id %>_channel");
+           channel.bind('comment_created', function(data) {
+           alert(data.message);
+          });
+         channel.bind('notification_created', function(data) {
+         $('#unread_count').html(data.unread_counts);
+         });
+
+         </script>
 
              <% end %>
            <li><%= link_to 'マイページ', edit_user_registration_path %></li>
