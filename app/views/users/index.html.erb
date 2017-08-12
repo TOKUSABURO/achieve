@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container-fluid">
   <h2>ユーザー</h2>
-  <div class="wraper">
+    <div class="wraper">
     <% @users.each do |user| %>
-    <div class="container-fluid col-md-2 col-sm-4 col-xs-6 ">
+    <div class=" col-md-2 col-sm-4 col-xs-6 ">
       <% if user.id != current_user.id %>
         <%= profile_img(user) %>
      　 <%= link_to user.email, user_path(user.id)%>
@@ -13,5 +13,4 @@
         <% end %>
       </div>
       <% end %>
-  </div>
 </div>
