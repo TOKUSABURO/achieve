@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   resources :poems,only:[:index] do
   end
 
+  resources :poemhers, only: [:index, :show]
+
   root 'top#index'
 
   if Rails.env.development?

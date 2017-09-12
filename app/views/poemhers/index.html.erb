@@ -1,0 +1,19 @@
+<h1>ポエム一覧(her使用)</h1>
+<div class="container">
+<div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+<table>
+  <tr>
+    <td>タイトル</td>
+    <td>内　　容</td>
+    <td></td>
+  </tr>
+<% @poemhers.each do |poemher| %>
+<tr>
+  <td class="poemtitle"><%= poemher.title %></td>
+  <td class="poemcontent"><%= poemher.content %></td>
+  <td class="poembtn"><%= link_to "詳細ページ", poemher_path(poemher.id), class: 'btn btn-default btn-sm btn-success' %></td>
+</tr>
+<% end %>
+</table>
+</div>
+</div>

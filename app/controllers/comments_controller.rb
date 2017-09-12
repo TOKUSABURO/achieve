@@ -29,17 +29,18 @@ class CommentsController < ApplicationController
 
    def destroy
      @comment = Comment.find(params[:id])
-     @comment.destroy
+     @blog = @comment.blog
      respond_to do |format|
       if @comment.destroy
-        format.html { redirect_to blog_path(@blog), notice: 'コメントを削除しました。' }
+          format.html { redirect_to blog_path(@blog), notice: 'コメントを削除しました。' }
         # JS形式でレスポンスを返します。
         format.js { render :index }
+
       else
         format.html { render :new }
       end
     end
-   end
+  end
 
   private
     def comment_params
