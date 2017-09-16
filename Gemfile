@@ -56,6 +56,8 @@ group :development, :test do
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
 
+  gem 'rake', '< 11.0'
+
 
 
 

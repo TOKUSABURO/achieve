@@ -7,18 +7,18 @@
   <%=f.hidden_field:name %>
   <%=f.hidden_field:email %>
   <%=f.hidden_field:content %>
-  
+
   <p>名前:<%= @contact.name %></p>
   <p>E-mail:<%= @contact.email %></p>
   <p>内容:<%= @contact.content %></p>
-  <%= f.submit "登録する" %>
+  <%= f.submit "登録する",class:'btn btn-primary btn-block' %>
 <% end %>
 
 <%=form_for(@contact,url:new_contact_path,method:'get')do|f|%>
   <%=f.hidden_field:name %>
   <%=f.hidden_field:email %>
   <%=f.hidden_field:content %>
-  <%=f.submit"戻る",name:'back' %>
+  <%=f.submit"戻る",name:'back' ,class:'btn btn-primary btn-block'%>
 
 <% end %>
 </div>
