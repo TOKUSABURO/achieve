@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   resources :notifications
 
-  resources :poems,only:[:index] do
+  resources :poems,only:[:index,show] do
   end
 
   resources :poemhers, only: [:index, :show]
