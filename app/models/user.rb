@@ -12,8 +12,12 @@ class User < ActiveRecord::Base
 
   has_many :tasks, dependent: :destroy #追記
 
+  has_many :submit_requests, dependent: :destroy
+  has_many :received_requests, class_name: 'SubmitRequest', foreign_key: 'request_user_id'
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,:confirmable,:omniauthable
+
    #
    mount_uploader :avatar, AvatarUploader
 
